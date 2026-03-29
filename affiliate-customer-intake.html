@@ -693,7 +693,8 @@ let state = {
   contact: {
     first_name: '', last_name: '', email: '', phone: '',
     address1: '', city: '', state: '', postal_code: '',
-    affiliate_shop: ''
+    affiliate_shop: '',
+    am_id: new URLSearchParams(window.location.search).get('am_id') || ''
   },
   rooms: []
 };
@@ -1188,7 +1189,7 @@ async function submitForm() {
 // ── Reset ──
 function resetForm() {
   state = {
-    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_shop:'' },
+    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_shop:'', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
     rooms: []
   };
   syncContactToDOM();
