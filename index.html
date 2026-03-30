@@ -534,6 +534,19 @@ body {
   .row { flex-direction: column; gap: 0; }
 }
 </style>
+<script type="text/javascript">
+  (function() {
+    var t = document.createElement("script");
+    t.type = "text/javascript", t.async = !0, t.src = 'https://api.rhixa.io/js/am.js', t.onload = t.onreadystatechange = function() {
+        var t = this.readyState;
+        if (!t || "complete" == t || "loaded" == t) try {
+          affiliateManager.init('a51HSJeCb0nZzbVOpb7i', 'https://backend.leadconnectorhq.com', '.intake.hydroshieldnwa.com')
+        } catch (t) {}
+    };
+    var e = document.getElementsByTagName("script")[0];
+    e.parentNode.insertBefore(t, e)
+  })();
+</script>
 </head>
 <body>
 
@@ -1179,6 +1192,12 @@ async function submitForm() {
 
     showToast('Referral submitted successfully!', 'success');
     showConfirmation();
+    if (window.affiliateManager) {
+      window.affiliateManager.trackLead(
+        { firstName: state.contact.first_name, lastName: state.contact.last_name, email: state.contact.email },
+        function() { console.log('Affiliate lead tracked'); }
+      );
+    }
   } catch (err) {
     btn.disabled = false;
     btn.textContent = 'Submit Referral';
