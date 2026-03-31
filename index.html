@@ -625,15 +625,6 @@ body {
       <div class="error-msg">Postal code is required</div>
     </div>
 
-    <div class="section-label">Referral Source</div>
-
-    <div class="field" data-field="affiliate_name">
-      <label for="affiliate_name">Your Name <span class="req">*</span></label>
-      <input type="text" id="affiliate_name" placeholder="Your full name" required>
-      <div class="error-msg">Your name is required</div>
-    </div>
-
-
     <button class="btn-primary" type="button" onclick="goToStep(1)">Next &rarr;</button>
   </div>
 
@@ -682,7 +673,6 @@ let state = {
   contact: {
     first_name: '', last_name: '', email: '', phone: '',
     address1: '', city: '', state: '', postal_code: '',
-    affiliate_name: '',
     affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '',
     am_id: new URLSearchParams(window.location.search).get('am_id') || ''
   },
@@ -737,7 +727,7 @@ function showConfirmation() {
 }
 
 // ── Contact Sync ──
-const contactFields = ['first_name','last_name','email','phone','address1','city','state','postal_code','affiliate_name'];
+const contactFields = ['first_name','last_name','email','phone','address1','city','state','postal_code'];
 
 function syncContactFromDOM() {
   contactFields.forEach(f => {
@@ -777,7 +767,7 @@ function validateContact() {
     ['city', c.city],
     ['state', c.state],
     ['postal_code', c.postal_code],
-    ['affiliate_name', c.affiliate_name],
+
     ['affiliate_shop', c.affiliate_shop]
   ];
   let firstError = null;
@@ -1081,7 +1071,7 @@ function renderReview() {
   html += reviewRow('Email', c.email);
   html += reviewRow('Phone', c.phone);
   html += reviewRow('Address', c.address1 + ', ' + c.city + ', ' + c.state + ' ' + c.postal_code);
-  html += reviewRow('Affiliate', c.affiliate_name);
+
   html += '</div>';
 
   html += '<div class="review-section">';
@@ -1172,7 +1162,7 @@ async function submitForm() {
 // ── Reset ──
 function resetForm() {
   state = {
-    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_name:'', affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
+    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
     rooms: []
   };
   syncContactToDOM();
