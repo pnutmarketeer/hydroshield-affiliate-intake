@@ -712,7 +712,15 @@ function goToStep(step) {
   backBtn.onclick = () => goToStep(step - 1);
 
   // Render rooms on step 1
-  if (step === 1) renderRooms();
+  if (step === 1) {
+    renderRooms();
+    // Auto-expand the first room if none are expanded
+    const anyExpanded = document.querySelector('.room-card.expanded');
+    if (!anyExpanded) {
+      const first = document.querySelector('.room-card');
+      if (first) first.classList.add('expanded');
+    }
+  }
   if (step === 2) renderReview();
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
