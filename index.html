@@ -627,36 +627,12 @@ body {
 
     <div class="section-label">Referral Source</div>
 
-    <div class="field" data-field="affiliate_shop">
-      <label for="affiliate_shop">Affiliate Shop <span class="req">*</span></label>
-      <select id="affiliate_shop" required>
-        <option value="">Select a shop...</option>
-        <option>911 Restoration of NW Arkansas</option>
-        <option>Alexander Tile &amp; Granite</option>
-        <option>AMCO RESTORATION</option>
-        <option>Arkansas Granite and Marble</option>
-        <option>Carpenter Construction</option>
-        <option>City S Granite</option>
-        <option>Corders Creative Granite and Marble</option>
-        <option>Cowdrey Granite</option>
-        <option>EMCAR</option>
-        <option>FOUR STATES STONE FABRICATORS DBA Grand Lake Countertops</option>
-        <option>GENESIS COUNTERTOPS AND ACCESSORIES LLC</option>
-        <option>Gunn Granite Company</option>
-        <option>Harris Heights Realty</option>
-        <option>Javier's Countertops</option>
-        <option>Majestic Marble &amp; Granite</option>
-        <option>MOLLY MAID OF NORTHWEST ARKANSAS</option>
-        <option>NEOSHO MARBLE</option>
-        <option>New Century Counter Tops</option>
-        <option>Paul Davis Restoration of Northwest Arkansas</option>
-        <option>ReSTONEovation</option>
-        <option>ROCK ON COUNTERTOPS</option>
-        <option>S&amp;G CARPET and more</option>
-        <option>Tri-City Granite</option>
-      </select>
-      <div class="error-msg">Please select an affiliate shop</div>
+    <div class="field" data-field="affiliate_name">
+      <label for="affiliate_name">Your Name <span class="req">*</span></label>
+      <input type="text" id="affiliate_name" placeholder="Your full name" required>
+      <div class="error-msg">Your name is required</div>
     </div>
+
 
     <button class="btn-primary" type="button" onclick="goToStep(1)">Next &rarr;</button>
   </div>
@@ -664,11 +640,11 @@ body {
   <!-- Screen 2: Rooms & Surfaces -->
   <div class="screen" id="screen-1">
     <div class="section-label">Rooms &amp; Surfaces</div>
-    <p style="font-size:0.88rem;color:#666;margin-bottom:16px;">Add each room and the surfaces to be treated. At least one room with one surface is required.</p>
+    <p style="font-size:0.88rem;color:#666;margin-bottom:16px;">Select a room and the stone surfaces to be treated. At least one room with one surface is required.</p>
 
     <div id="rooms-container"></div>
 
-    <button class="btn-add" type="button" onclick="addRoom()">+ Add Room</button>
+    <button class="btn-add" type="button" onclick="addRoom()">+ Additional stone for a different room?</button>
 
     <button class="btn-primary" type="button" style="margin-top:20px;" onclick="goToStep(2)">Review &amp; Submit &rarr;</button>
   </div>
@@ -706,7 +682,8 @@ let state = {
   contact: {
     first_name: '', last_name: '', email: '', phone: '',
     address1: '', city: '', state: '', postal_code: '',
-    affiliate_shop: '',
+    affiliate_name: '',
+    affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '',
     am_id: new URLSearchParams(window.location.search).get('am_id') || ''
   },
   rooms: []
@@ -760,7 +737,7 @@ function showConfirmation() {
 }
 
 // ── Contact Sync ──
-const contactFields = ['first_name','last_name','email','phone','address1','city','state','postal_code','affiliate_shop'];
+const contactFields = ['first_name','last_name','email','phone','address1','city','state','postal_code','affiliate_name'];
 
 function syncContactFromDOM() {
   contactFields.forEach(f => {
@@ -800,6 +777,7 @@ function validateContact() {
     ['city', c.city],
     ['state', c.state],
     ['postal_code', c.postal_code],
+    ['affiliate_name', c.affiliate_name],
     ['affiliate_shop', c.affiliate_shop]
   ];
   let firstError = null;
@@ -842,15 +820,9 @@ function validateRooms() {
       if (sel) { setError(sel); if (!firstError) firstError = sel; }
       valid = false;
     }
-    if (!room.room_name) {
-      const inp = roomEl.querySelector('.room-name-input');
-      if (inp) { setError(inp); if (!firstError) firstError = inp; }
-      valid = false;
-    }
     if (room.surfaces.length === 0) {
       showToast('Each room needs at least one surface', 'error');
       valid = false;
-      // Expand this room
       roomEl.classList.add('expanded');
       return;
     }
@@ -897,8 +869,6 @@ function syncRoomsFromDOM() {
     const el = document.querySelector('[data-room-uid="' + room._uid + '"]');
     if (!el) return;
     room.room_type = el.querySelector('.room-type-select').value;
-    room.room_name = el.querySelector('.room-name-input').value.trim();
-    room.room_notes = el.querySelector('.room-notes-input').value.trim();
 
     room.surfaces.forEach(surf => {
       const sel = el.querySelector('[data-surface-uid="' + surf._uid + '"]');
@@ -906,7 +876,7 @@ function syncRoomsFromDOM() {
       surf.surface_type = sel.querySelector('.surface-type-select').value;
       surf.material_type = sel.querySelector('.material-type-select').value;
       surf.square_footage = sel.querySelector('.sqft-input').value;
-      surf.surface_notes = sel.querySelector('.surface-notes-input').value.trim();
+      surf.estimated_install_date = sel.querySelector('.install-date-input').value;
     });
   });
 }
@@ -918,9 +888,7 @@ function addRoom() {
   const room = {
     _uid: uid(),
     room_type: '',
-    room_name: '',
-    room_notes: '',
-    surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', surface_notes: '' }]
+    surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' }]
   };
   state.rooms.push(room);
   renderRooms();
@@ -944,7 +912,7 @@ function addSurface(roomUid) {
   // Collapse existing surfaces in this room
   const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
   if (roomEl) roomEl.querySelectorAll('.surface-card').forEach(c => c.classList.remove('expanded'));
-  const surf = { _uid: uid(), surface_type: '', material_type: '', square_footage: '', surface_notes: '' };
+  const surf = { _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' };
   room.surfaces.push(surf);
   renderRooms();
   // Re-expand room + new surface
@@ -994,7 +962,7 @@ function renderRooms() {
   let html = '';
   state.rooms.forEach((room, ri) => {
     const isExpanded = expandedRooms.has(room._uid);
-    const roomTitle = room.room_name || room.room_type || 'Room ' + (ri + 1);
+    const roomTitle = room.room_type || 'Room ' + (ri + 1);
     const surfCount = room.surfaces.length;
 
     html += '<div class="room-card' + (isExpanded ? ' expanded' : '') + '" data-room-uid="' + room._uid + '">';
@@ -1011,16 +979,9 @@ function renderRooms() {
     html += '</div></div>';
 
     html += '<div class="room-body">';
-    html += '<div class="row">';
-    html += '<div class="field"><label>Room Type <span class="req">*</span></label>';
+    html += '<div class="field"><label>Room <span class="req">*</span></label>';
     html += '<select class="room-type-select" onchange="onRoomFieldChange(\'' + room._uid + '\')">' + buildOptions(ROOM_TYPES, room.room_type) + '</select>';
-    html += '<div class="error-msg">Room type is required</div></div>';
-    html += '<div class="field"><label>Room Name <span class="req">*</span></label>';
-    html += '<input type="text" class="room-name-input" value="' + escAttr(room.room_name) + '" placeholder="e.g. Main Kitchen" oninput="onRoomFieldChange(\'' + room._uid + '\')">';
-    html += '<div class="error-msg">Room name is required</div></div>';
-    html += '</div>';
-    html += '<div class="field"><label>Room Notes</label>';
-    html += '<textarea class="room-notes-input" rows="2" placeholder="Optional notes...">' + escHtml(room.room_notes) + '</textarea></div>';
+    html += '<div class="error-msg">Room is required</div></div>';
 
     html += '<div class="section-label" style="margin-top:12px;">Surfaces</div>';
 
@@ -1046,12 +1007,14 @@ function renderRooms() {
       html += '<div class="field"><label>Sq Ft <span class="req">*</span></label>';
       html += '<input type="number" class="sqft-input" inputmode="decimal" min="0" value="' + escAttr(surf.square_footage) + '" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')" oninput="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">';
       html += '<div class="error-msg">Square footage is required</div></div>';
-      html += '<div class="field"><label>Compatibility Notes</label>';
-      html += '<textarea class="surface-notes-input" rows="2" placeholder="Optional notes...">' + escHtml(surf.surface_notes) + '</textarea></div>';
+      html += '<div class="field"><label>Estimated Install Date</label>';
+      html += '<input type="date" class="install-date-input" value="' + escAttr(surf.estimated_install_date) + '">';
+      html += '</div>';
       html += '</div></div>';
     });
 
-    html += '<button class="btn-add" type="button" onclick="addSurface(\'' + room._uid + '\')">+ Add Surface to This Room</button>';
+    const addSurfLabel = room.room_type ? 'Additional stone for the ' + escHtml(room.room_type) + '?' : '+ Add another surface';
+    html += '<button class="btn-add" type="button" onclick="addSurface(\'' + room._uid + '\')">' + addSurfLabel + '</button>';
     html += '</div></div>';
   });
 
@@ -1071,14 +1034,15 @@ function toggleSurface(surfUid) {
 }
 
 function onRoomFieldChange(roomUid) {
-  // Live-update header title
   const el = document.querySelector('[data-room-uid="' + roomUid + '"]');
   if (!el) return;
-  const name = el.querySelector('.room-name-input').value.trim();
   const type = el.querySelector('.room-type-select').value;
   const room = state.rooms.find(r => r._uid === roomUid);
-  if (room) { room.room_name = name; room.room_type = type; }
-  el.querySelector('.room-header-title').textContent = name || type || 'New Room';
+  if (room) { room.room_type = type; }
+  el.querySelector('.room-header-title').textContent = type || 'New Room';
+  // Update the "add surface" button label
+  const addBtn = el.querySelector('.btn-add');
+  if (addBtn) addBtn.textContent = type ? 'Additional stone for the ' + type + '?' : '+ Add another surface';
 }
 
 function onSurfaceFieldChange(roomUid, surfUid) {
@@ -1117,18 +1081,17 @@ function renderReview() {
   html += reviewRow('Email', c.email);
   html += reviewRow('Phone', c.phone);
   html += reviewRow('Address', c.address1 + ', ' + c.city + ', ' + c.state + ' ' + c.postal_code);
-  html += reviewRow('Affiliate', c.affiliate_shop);
+  html += reviewRow('Affiliate', c.affiliate_name);
   html += '</div>';
 
   html += '<div class="review-section">';
   html += '<h3>Rooms &amp; Surfaces</h3>';
   state.rooms.forEach((room, ri) => {
     html += '<div class="review-room">';
-    html += '<h4>' + escHtml(room.room_name || 'Room ' + (ri+1)) + ' <span style="font-weight:400;color:#666;">(' + escHtml(room.room_type) + ')</span></h4>';
-    if (room.room_notes) html += '<div style="font-size:0.82rem;color:#888;margin-bottom:4px;">Note: ' + escHtml(room.room_notes) + '</div>';
+    html += '<h4>' + escHtml(room.room_type || 'Room ' + (ri+1)) + '</h4>';
     room.surfaces.forEach(s => {
       let label = escHtml(s.surface_type) + ' &middot; ' + escHtml(s.material_type) + ' &middot; ' + s.square_footage + ' sqft';
-      if (s.surface_notes) label += ' <span style="color:#999;">(' + escHtml(s.surface_notes) + ')</span>';
+      if (s.estimated_install_date) label += ' &middot; Install: ' + s.estimated_install_date;
       html += '<div class="review-surface">' + label + '</div>';
     });
     html += '</div>';
@@ -1151,11 +1114,11 @@ async function submitForm() {
   syncContactFromDOM();
   syncRoomsFromDOM();
 
-  // Build payload
+  // Build payload — room_name auto-set from room_type for GHL
   const rooms = state.rooms.map(r => ({
-    room_name: r.room_name,
+    room_name: r.room_type,
     room_type: r.room_type,
-    room_notes: r.room_notes
+    room_notes: ''
   }));
 
   const surfaces = [];
@@ -1166,7 +1129,8 @@ async function submitForm() {
         surface_type: s.surface_type,
         material_type: s.material_type,
         square_footage: parseFloat(s.square_footage) || 0,
-        surface_notes: s.surface_notes
+        surface_notes: '',
+        estimated_install_date: s.estimated_install_date || ''
       });
     });
   });
@@ -1208,7 +1172,7 @@ async function submitForm() {
 // ── Reset ──
 function resetForm() {
   state = {
-    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_shop:'', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
+    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_name:'', affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
     rooms: []
   };
   syncContactToDOM();
@@ -1251,9 +1215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   state.rooms.push({
     _uid: uid(),
     room_type: '',
-    room_name: '',
-    room_notes: '',
-    surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', surface_notes: '' }]
+    surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' }]
   });
 });
 </script>
