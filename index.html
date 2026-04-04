@@ -361,10 +361,11 @@
       font-size: 0.8rem;
       color: #999;
       transition: transform .2s;
+      transform: rotate(-90deg);
     }
 
     .room-card.expanded .room-chevron {
-      transform: rotate(180deg);
+      transform: rotate(0deg);
     }
 
     .room-body {
@@ -474,10 +475,11 @@
       font-size: 0.7rem;
       color: #999;
       transition: transform .2s;
+      transform: rotate(-90deg);
     }
 
     .surface-card.expanded .surface-chevron {
-      transform: rotate(180deg);
+      transform: rotate(0deg);
     }
 
     .surface-body {
@@ -1138,12 +1140,12 @@
 
         html += '<div class="room-body">';
 
-        // Instruction hint
-        html += '<div class="room-instruction"><strong>Step 1:</strong> Select the room below. <strong>Step 2:</strong> Choose each stone surface in that room and its details.</div>';
-
         html += '<div class="field"><label>Room <span class="req">*</span></label>';
         html += '<select class="room-type-select" onchange="onRoomFieldChange(\'' + room._uid + '\')">' + buildOptions(ROOM_TYPES, room.room_type) + '</select>';
         html += '<div class="error-msg">Room is required</div></div>';
+
+        // Instruction hint after room selection
+        html += '<div class="room-instruction">Now select each stone surface in this room and enter its details below.</div>';
 
         html += '<div class="section-label" style="margin-top:12px;">Stone Surfaces in This Room</div>';
 
