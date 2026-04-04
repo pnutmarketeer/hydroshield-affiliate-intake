@@ -1,1220 +1,1442 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="robots" content="noindex, nofollow">
-<title>HydroShield NWA — Affiliate Customer Intake</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --hs-green: #8EBF40;
-  --hs-green-dark: #7AA835;
-  --hs-blue: #027DC7;
-  --hs-blue-alt: #007CC4;
-  --hs-navy: #0D192F;
-  --hs-dark: #121021;
-  --hs-white: #FFFFFF;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <title>HydroShield NWA — Affiliate Customer Intake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hs-green: #8EBF40;
+      --hs-green-dark: #7AA835;
+      --hs-blue: #027DC7;
+      --hs-blue-alt: #007CC4;
+      --hs-navy: #0D192F;
+      --hs-dark: #121021;
+      --hs-white: #FFFFFF;
+    }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-html, body {
-  min-height: 100vh;
-  min-height: 100dvh;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  color: var(--hs-dark);
-  -webkit-font-smoothing: antialiased;
-}
+    html,
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: var(--hs-dark);
+      -webkit-font-smoothing: antialiased;
+    }
 
-body {
-  background: radial-gradient(circle at 50% 50%, var(--hs-navy), #132542 35%, var(--hs-blue) 85%);
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px 16px 48px;
-}
+    body {
+      background: radial-gradient(circle at 50% 50%, var(--hs-navy), #132542 35%, var(--hs-blue) 85%);
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
 
-/* Logo Header */
-.logo-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.logo-header img {
-  width: 180px;
-  max-width: 60vw;
-  height: auto;
-  margin-bottom: 8px;
-}
-.logo-header h1 {
-  color: var(--hs-white);
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 2px;
-}
-.logo-header p {
-  color: rgba(255,255,255,.7);
-  font-size: 0.9rem;
-  font-weight: 400;
-}
+    /* Logo Header */
+    .logo-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-/* Progress Dots */
-.progress {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.progress-dots {
-  display: flex;
-  gap: 8px;
-}
-.progress-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.3);
-  transition: background .3s;
-}
-.progress-dot.active {
-  background: var(--hs-green);
-}
-.progress-label {
-  color: rgba(255,255,255,.7);
-  font-size: 0.8rem;
-  font-weight: 500;
-}
+    .logo-header img {
+      width: 180px;
+      max-width: 60vw;
+      height: auto;
+      margin-bottom: 8px;
+    }
 
-/* Back Button */
-.back-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,.5);
-  color: var(--hs-white);
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  min-height: 44px;
-  margin-bottom: 14px;
-  align-self: flex-start;
-  display: none;
-  transition: background .2s;
-}
-.back-btn:hover {
-  background: rgba(255,255,255,.1);
-}
+    .logo-header h1 {
+      color: var(--hs-white);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
 
-/* Card */
-.card {
-  background: var(--hs-white);
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.12);
-  width: 100%;
-  max-width: 600px;
-}
+    .logo-header p {
+      color: rgba(255, 255, 255, .7);
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
 
-/* Screen management */
-.screen { display: none; }
-.screen.active { display: block; }
+    /* Progress Dots */
+    .progress {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
 
-/* Section Labels */
-.section-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
-  margin-top: 20px;
-}
-.section-label:first-child { margin-top: 0; }
+    .progress-dots {
+      display: flex;
+      gap: 8px;
+    }
 
-/* Form Fields */
-.field {
-  margin-bottom: 16px;
-}
-.field label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--hs-dark);
-  font-size: 0.9rem;
-}
-.field label .req {
-  color: #e53e3e;
-  margin-left: 2px;
-}
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 14px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: inherit;
-  background: #fff;
-  color: var(--hs-dark);
-  transition: border-color .2s, box-shadow .2s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-.field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
-}
-.field textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: var(--hs-blue);
-  box-shadow: 0 0 0 2px rgba(2,125,199,.2);
-}
-.field.error input,
-.field.error select,
-.field.error textarea {
-  border-color: #e53e3e;
-}
-.field .error-msg {
-  color: #e53e3e;
-  font-size: 0.8rem;
-  margin-top: 4px;
-  display: none;
-}
-.field.error .error-msg {
-  display: block;
-}
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      transition: background .3s;
+    }
 
-/* Two column row */
-.row {
-  display: flex;
-  gap: 12px;
-}
-.row .field {
-  flex: 1;
-}
+    .progress-dot.active {
+      background: var(--hs-green);
+    }
 
-/* Primary Button */
-.btn-primary {
-  background: linear-gradient(135deg, var(--hs-blue), var(--hs-green));
-  color: #fff;
-  width: 100%;
-  padding: 14px 20px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 16px;
-  font-family: inherit;
-  border: none;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: filter .2s, transform .1s;
-  min-height: 48px;
-}
-.btn-primary:hover {
-  filter: brightness(0.95);
-}
-.btn-primary:active {
-  transform: translateY(1px);
-}
-.btn-primary:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+    .progress-label {
+      color: rgba(255, 255, 255, .7);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
 
-/* Add Room / Add Surface Buttons */
-.btn-add {
-  width: 100%;
-  padding: 14px;
-  border: 2px dashed var(--hs-blue);
-  background: transparent;
-  color: var(--hs-blue);
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  margin-top: 12px;
-  min-height: 48px;
-  transition: background .2s;
-}
-.btn-add:hover {
-  background: rgba(2,125,199,.05);
-}
+    /* Back Button */
+    .back-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .5);
+      color: var(--hs-white);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      min-height: 44px;
+      margin-bottom: 14px;
+      align-self: flex-start;
+      display: none;
+      transition: background .2s;
+    }
 
-/* Room Card */
-.room-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  overflow: hidden;
-}
-.room-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  background: #f7fafc;
-  cursor: pointer;
-  min-height: 48px;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.room-header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  min-width: 0;
-}
-.room-header-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.room-header-badge {
-  background: var(--hs-blue);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 10px;
-  white-space: nowrap;
-}
-.room-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.room-remove-btn {
-  background: none;
-  border: none;
-  color: #e53e3e;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 4px 8px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-.room-chevron {
-  font-size: 0.8rem;
-  color: #999;
-  transition: transform .2s;
-}
-.room-card.expanded .room-chevron {
-  transform: rotate(180deg);
-}
-.room-body {
-  display: none;
-  padding: 16px;
-  border-top: 1px solid #e2e8f0;
-}
-.room-card.expanded .room-body {
-  display: block;
-}
+    .back-btn:hover {
+      background: rgba(255, 255, 255, .1);
+    }
 
-/* Surface Card */
-.surface-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  overflow: hidden;
-}
-.surface-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  background: #fafbfc;
-  cursor: pointer;
-  min-height: 44px;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.surface-header-label {
-  font-size: 0.85rem;
-  color: #555;
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.surface-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.surface-remove-btn {
-  background: none;
-  border: none;
-  color: #e53e3e;
-  font-size: 0.75rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 4px 8px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-.surface-chevron {
-  font-size: 0.7rem;
-  color: #999;
-  transition: transform .2s;
-}
-.surface-card.expanded .surface-chevron {
-  transform: rotate(180deg);
-}
-.surface-body {
-  display: none;
-  padding: 14px;
-  border-top: 1px solid #e2e8f0;
-}
-.surface-card.expanded .surface-body {
-  display: block;
-}
+    /* Card */
+    .card {
+      background: var(--hs-white);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .12);
+      width: 100%;
+      max-width: 600px;
+    }
 
-/* Review Screen */
-.review-section {
-  margin-bottom: 20px;
-}
-.review-section h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--hs-dark);
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #e2e8f0;
-}
-.review-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 0;
-  font-size: 0.88rem;
-}
-.review-row .label {
-  color: #666;
-  flex-shrink: 0;
-}
-.review-row .value {
-  color: var(--hs-dark);
-  font-weight: 500;
-  text-align: right;
-  word-break: break-word;
-  margin-left: 12px;
-}
-.review-room {
-  background: #f7fafc;
-  border-radius: 6px;
-  padding: 12px;
-  margin-bottom: 8px;
-}
-.review-room h4 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-.review-surface {
-  font-size: 0.85rem;
-  color: #555;
-  padding: 3px 0 3px 12px;
-  border-left: 2px solid var(--hs-blue);
-  margin-bottom: 4px;
-}
+    /* Screen management */
+    .screen {
+      display: none;
+    }
 
-/* Confirmation Screen */
-.confirmation {
-  text-align: center;
-  padding: 40px 20px;
-}
-.confirmation .check {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--hs-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-}
-.confirmation .check svg {
-  width: 32px;
-  height: 32px;
-  stroke: white;
-  stroke-width: 3;
-  fill: none;
-}
-.confirmation h2 {
-  color: var(--hs-dark);
-  margin-bottom: 8px;
-}
-.confirmation p {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-.confirmation .customer-name {
-  font-weight: 700;
-  color: var(--hs-dark);
-  font-size: 1.1rem;
-  margin: 12px 0;
-}
-.btn-new {
-  background: transparent;
-  border: 2px solid var(--hs-blue);
-  color: var(--hs-blue);
-  width: 100%;
-  padding: 14px 20px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 16px;
-  font-family: inherit;
-  cursor: pointer;
-  margin-top: 24px;
-  min-height: 48px;
-}
+    .screen.active {
+      display: block;
+    }
 
-/* Toast */
-.toast-container {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  pointer-events: none;
-}
-.toast {
-  padding: 12px 24px;
-  border-radius: 8px;
-  color: white;
-  font-size: 0.9rem;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
-  animation: toastIn .3s ease, toastOut .3s ease 2.7s forwards;
-  pointer-events: auto;
-  max-width: 90vw;
-  text-align: center;
-}
-.toast.error { background: #e53e3e; }
-.toast.success { background: var(--hs-green); }
+    /* Section Labels */
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      margin-top: 20px;
+    }
 
-@keyframes toastIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes toastOut {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(20px); }
-}
+    .section-label:first-child {
+      margin-top: 0;
+    }
 
-/* Responsive */
-@media (max-width: 480px) {
-  body { padding: 16px 12px 40px; }
-  .card { padding: 24px 18px; }
-  .row { flex-direction: column; gap: 0; }
-}
-</style>
-<script type="text/javascript">
-  (function() {
-    var t = document.createElement("script");
-    t.type = "text/javascript", t.async = !0, t.src = 'https://api.rhixa.io/js/am.js', t.onload = t.onreadystatechange = function() {
+    /* Form Fields */
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--hs-dark);
+      font-size: 0.9rem;
+    }
+
+    .field label .req {
+      color: #e53e3e;
+      margin-left: 2px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 14px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: inherit;
+      background: #fff;
+      color: var(--hs-dark);
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--hs-blue);
+      box-shadow: 0 0 0 2px rgba(2, 125, 199, .2);
+    }
+
+    .field.error input,
+    .field.error select,
+    .field.error textarea {
+      border-color: #e53e3e;
+    }
+
+    .field .error-msg {
+      color: #e53e3e;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .field.error .error-msg {
+      display: block;
+    }
+
+    /* Two column row */
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .row .field {
+      flex: 1;
+    }
+
+    /* Primary Button */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--hs-blue), var(--hs-green));
+      color: #fff;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: filter .2s, transform .1s;
+      min-height: 48px;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(0.95);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Add Room / Add Surface Buttons */
+    .btn-add {
+      width: 100%;
+      padding: 14px;
+      border: 2px dashed var(--hs-blue);
+      background: transparent;
+      color: var(--hs-blue);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 12px;
+      min-height: 48px;
+      transition: background .2s;
+    }
+
+    .btn-add:hover {
+      background: rgba(2, 125, 199, .05);
+    }
+
+    /* Room Card */
+    .room-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .room-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      background: #f7fafc;
+      cursor: pointer;
+      min-height: 48px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .room-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .room-header-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .room-header-badge {
+      background: var(--hs-blue);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .room-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .room-remove-btn {
+      background: none;
+      border: none;
+      color: #e53e3e;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 8px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .room-chevron {
+      font-size: 0.8rem;
+      color: #999;
+      transition: transform .2s;
+    }
+
+    .room-card.expanded .room-chevron {
+      transform: rotate(180deg);
+    }
+
+    .room-body {
+      display: none;
+      padding: 16px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .room-card.expanded .room-body {
+      display: block;
+    }
+
+    /* Room Card — expanded/active state */
+    .room-card.expanded {
+      border: 2px solid var(--hs-blue);
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(2,125,199,.12);
+    }
+    .room-card.expanded .room-header {
+      background: linear-gradient(135deg, rgba(2,125,199,.08), rgba(142,191,64,.06));
+    }
+    .room-card:not(.expanded) {
+      opacity: 0.7;
+      transition: opacity .2s;
+    }
+    .room-card:not(.expanded):hover {
+      opacity: 1;
+    }
+
+    /* Room step number */
+    .room-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--hs-blue);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Surface Card */
+    .surface-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .surface-card.expanded {
+      border-color: var(--hs-green);
+      background: rgba(142,191,64,.03);
+    }
+
+    .surface-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: #fafbfc;
+      cursor: pointer;
+      min-height: 44px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .surface-card.expanded .surface-header {
+      background: rgba(142,191,64,.08);
+    }
+
+    .surface-header-label {
+      font-size: 0.85rem;
+      color: #555;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .surface-header-label.needs-input {
+      color: var(--hs-blue);
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .surface-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .surface-remove-btn {
+      background: none;
+      border: none;
+      color: #e53e3e;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 8px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .surface-chevron {
+      font-size: 0.7rem;
+      color: #999;
+      transition: transform .2s;
+    }
+
+    .surface-card.expanded .surface-chevron {
+      transform: rotate(180deg);
+    }
+
+    .surface-body {
+      display: none;
+      padding: 14px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .surface-card.expanded .surface-body {
+      display: block;
+    }
+
+    /* Instruction hint within rooms */
+    .room-instruction {
+      background: rgba(2,125,199,.06);
+      border-left: 3px solid var(--hs-blue);
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: #555;
+      margin-bottom: 14px;
+      border-radius: 0 6px 6px 0;
+      line-height: 1.4;
+    }
+    .room-instruction strong {
+      color: var(--hs-blue);
+    }
+
+    /* Review Screen */
+    .review-section {
+      margin-bottom: 20px;
+    }
+
+    .review-section h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--hs-dark);
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .review-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      font-size: 0.88rem;
+    }
+
+    .review-row .label {
+      color: #666;
+      flex-shrink: 0;
+    }
+
+    .review-row .value {
+      color: var(--hs-dark);
+      font-weight: 500;
+      text-align: right;
+      word-break: break-word;
+      margin-left: 12px;
+    }
+
+    .review-room {
+      background: #f7fafc;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 8px;
+    }
+
+    .review-room h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .review-surface {
+      font-size: 0.85rem;
+      color: #555;
+      padding: 3px 0 3px 12px;
+      border-left: 2px solid var(--hs-blue);
+      margin-bottom: 4px;
+    }
+
+    /* Confirmation Screen */
+    .confirmation {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .confirmation .check {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--hs-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .confirmation .check svg {
+      width: 32px;
+      height: 32px;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
+    }
+
+    .confirmation h2 {
+      color: var(--hs-dark);
+      margin-bottom: 8px;
+    }
+
+    .confirmation p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .confirmation .customer-name {
+      font-weight: 700;
+      color: var(--hs-dark);
+      font-size: 1.1rem;
+      margin: 12px 0;
+    }
+
+    .btn-new {
+      background: transparent;
+      border: 2px solid var(--hs-blue);
+      color: var(--hs-blue);
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 24px;
+      min-height: 48px;
+    }
+
+    /* Toast */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .toast {
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      animation: toastIn .3s ease, toastOut .3s ease 2.7s forwards;
+      pointer-events: auto;
+      max-width: 90vw;
+      text-align: center;
+    }
+
+    .toast.error {
+      background: #e53e3e;
+    }
+
+    .toast.success {
+      background: var(--hs-green);
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes toastOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 12px 40px;
+      }
+
+      .card {
+        padding: 24px 18px;
+      }
+
+      .row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    (function () {
+      var t = document.createElement("script");
+      t.type = "text/javascript", t.async = !0, t.src = 'https://api.rhixa.io/js/am.js', t.onload = t.onreadystatechange = function () {
         var t = this.readyState;
         if (!t || "complete" == t || "loaded" == t) try {
           affiliateManager.init('a51HSJeCb0nZzbVOpb7i', 'https://backend.leadconnectorhq.com', '.intake.hydroshieldnwa.com')
-        } catch (t) {}
-    };
-    var e = document.getElementsByTagName("script")[0];
-    e.parentNode.insertBefore(t, e)
-  })();
-</script>
+        } catch (t) { }
+      };
+      var e = document.getElementsByTagName("script")[0];
+      e.parentNode.insertBefore(t, e)
+    })();
+  </script>
 </head>
+
 <body>
 
-<div class="logo-header">
-  <img src="https://hydroshieldnwa.com/wp-content/uploads/2023/07/HydroShield-NWA-Transparent-Background.png" alt="HydroShield NWA Logo">
-  <h1>HydroShield NWA</h1>
-  <p>Affiliate Customer Submission</p>
-</div>
-
-<div class="progress" id="progress">
-  <div class="progress-dots">
-    <div class="progress-dot active" data-step="0"></div>
-    <div class="progress-dot" data-step="1"></div>
-    <div class="progress-dot" data-step="2"></div>
-  </div>
-  <span class="progress-label" id="progress-label">Step 1 of 3</span>
-</div>
-
-<button class="back-btn" id="back-btn" type="button">&larr; Back</button>
-
-<div class="card">
-
-  <!-- Screen 1: Customer Info + Affiliate -->
-  <div class="screen active" id="screen-0">
-    <div class="section-label">Customer Information</div>
-
-    <div class="row">
-      <div class="field" data-field="first_name">
-        <label for="first_name">First Name <span class="req">*</span></label>
-        <input type="text" id="first_name" autocomplete="given-name" required>
-        <div class="error-msg">First name is required</div>
-      </div>
-      <div class="field" data-field="last_name">
-        <label for="last_name">Last Name <span class="req">*</span></label>
-        <input type="text" id="last_name" autocomplete="family-name" required>
-        <div class="error-msg">Last name is required</div>
-      </div>
-    </div>
-
-    <div class="field" data-field="email">
-      <label for="email">Email <span class="req">*</span></label>
-      <input type="email" id="email" autocomplete="email" required>
-      <div class="error-msg">Valid email is required</div>
-    </div>
-
-    <div class="field" data-field="phone">
-      <label for="phone">Phone <span class="req">*</span></label>
-      <input type="tel" id="phone" autocomplete="tel" required>
-      <div class="error-msg">Phone number is required</div>
-    </div>
-
-    <div class="section-label">Address</div>
-
-    <div class="field" data-field="address1">
-      <label for="address1">Street Address <span class="req">*</span></label>
-      <input type="text" id="address1" autocomplete="street-address" required>
-      <div class="error-msg">Street address is required</div>
-    </div>
-
-    <div class="row">
-      <div class="field" data-field="city">
-        <label for="city">City <span class="req">*</span></label>
-        <input type="text" id="city" autocomplete="address-level2" required>
-        <div class="error-msg">City is required</div>
-      </div>
-      <div class="field" data-field="state" style="max-width:100px;">
-        <label for="state">State <span class="req">*</span></label>
-        <input type="text" id="state" autocomplete="address-level1" maxlength="2" required>
-        <div class="error-msg">Required</div>
-      </div>
-    </div>
-
-    <div class="field" data-field="postal_code">
-      <label for="postal_code">Postal Code <span class="req">*</span></label>
-      <input type="text" id="postal_code" autocomplete="postal-code" inputmode="numeric" required>
-      <div class="error-msg">Postal code is required</div>
-    </div>
-
-    <button class="btn-primary" type="button" onclick="goToStep(1)">Next &rarr;</button>
+  <div class="logo-header">
+    <img src="https://hydroshieldnwa.com/wp-content/uploads/2023/07/HydroShield-NWA-Transparent-Background.png"
+      alt="HydroShield NWA Logo">
+    <h1>HydroShield NWA</h1>
+    <p>Affiliate Customer Submission</p>
   </div>
 
-  <!-- Screen 2: Rooms & Surfaces -->
-  <div class="screen" id="screen-1">
-    <div class="section-label">Rooms &amp; Surfaces</div>
-    <p style="font-size:0.88rem;color:#666;margin-bottom:16px;">Select a room and the stone surfaces to be treated. At least one room with one surface is required.</p>
-
-    <div id="rooms-container"></div>
-
-    <button class="btn-add" type="button" onclick="addRoom()">+ Additional stone for a different room?</button>
-
-    <button class="btn-primary" type="button" style="margin-top:20px;" onclick="goToStep(2)">Review &amp; Submit &rarr;</button>
-  </div>
-
-  <!-- Screen 3: Review & Submit -->
-  <div class="screen" id="screen-2">
-    <div class="section-label">Review Submission</div>
-    <p style="font-size:0.88rem;color:#666;margin-bottom:16px;">Please verify all information before submitting.</p>
-
-    <div id="review-content"></div>
-
-    <button class="btn-primary" type="button" id="submit-btn" onclick="submitForm()">Submit Referral</button>
-  </div>
-
-  <!-- Screen 4: Confirmation -->
-  <div class="screen" id="screen-confirm">
-    <div class="confirmation">
-      <div class="check">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-      </div>
-      <h2>Referral Submitted!</h2>
-      <div class="customer-name" id="confirm-name"></div>
-      <p>Mike will be in touch to schedule a visit.</p>
-      <button class="btn-new" type="button" onclick="resetForm()">Submit Another Referral</button>
+  <div class="progress" id="progress">
+    <div class="progress-dots">
+      <div class="progress-dot active" data-step="0"></div>
+      <div class="progress-dot" data-step="1"></div>
+      <div class="progress-dot" data-step="2"></div>
     </div>
+    <span class="progress-label" id="progress-label">Step 1 of 3</span>
   </div>
 
-</div>
+  <button class="back-btn" id="back-btn" type="button">&larr; Back</button>
 
-<div class="toast-container" id="toast-container"></div>
+  <div class="card">
 
-<script>
-// ── State ──
-let state = {
-  contact: {
-    first_name: '', last_name: '', email: '', phone: '',
-    address1: '', city: '', state: '', postal_code: '',
-    affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '',
-    am_id: new URLSearchParams(window.location.search).get('am_id') || ''
-  },
-  rooms: []
-};
+    <!-- Screen 1: Customer Info + Affiliate -->
+    <div class="screen active" id="screen-0">
+      <div class="section-label">Customer Information</div>
 
-let currentStep = 0;
-let uidCounter = 0;
-function uid() { return '_' + (++uidCounter); }
+      <div class="row">
+        <div class="field" data-field="first_name">
+          <label for="first_name">First Name <span class="req">*</span></label>
+          <input type="text" id="first_name" autocomplete="given-name" required>
+          <div class="error-msg">First name is required</div>
+        </div>
+        <div class="field" data-field="last_name">
+          <label for="last_name">Last Name <span class="req">*</span></label>
+          <input type="text" id="last_name" autocomplete="family-name" required>
+          <div class="error-msg">Last name is required</div>
+        </div>
+      </div>
 
-const ROOM_TYPES = ['Kitchen','Master Bath','Guest Bath','Master Bedroom','Hallway','Laundry Room','Outdoor Kitchen','Other'];
-const SURFACE_TYPES = ['Countertop','Backsplash','Shower Wall','Shower Floor','Vanity Top','Bathroom Floor','Kitchen Floor','Hallway Floor','Fireplace Surround','Window Sill','Outdoor Countertop','Laundry Room Countertop','Shower Glass Door and Enclosure','Mirror','Windows','Other'];
-const MATERIAL_TYPES = ['Granite','Quartz','Marble','Travertine','Limestone','Ceramic Tile','Porcelain Tile','Natural Stone (general)','Sintered Stone','Grout','Glass','Mirror','Concrete','Slate','Sandstone','Onyx','Other'];
+      <div class="field" data-field="email">
+        <label for="email">Email <span class="req">*</span></label>
+        <input type="email" id="email" autocomplete="email" required>
+        <div class="error-msg">Valid email is required</div>
+      </div>
 
-// ── Navigation ──
-function goToStep(step) {
-  if (step > currentStep) {
-    if (currentStep === 0 && !validateContact()) return;
-    if (currentStep === 1 && !validateRooms()) return;
-  }
-  if (currentStep === 0) syncContactFromDOM();
-  if (currentStep === 1) syncRoomsFromDOM();
+      <div class="field" data-field="phone">
+        <label for="phone">Phone <span class="req">*</span></label>
+        <input type="tel" id="phone" autocomplete="tel" required>
+        <div class="error-msg">Phone number is required</div>
+      </div>
 
-  currentStep = step;
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-' + step).classList.add('active');
+      <div class="section-label">Address</div>
 
-  // Progress
-  const dots = document.querySelectorAll('.progress-dot');
-  dots.forEach((d, i) => d.classList.toggle('active', i <= step));
-  document.getElementById('progress-label').textContent = 'Step ' + (step + 1) + ' of 3';
-  document.getElementById('progress').style.display = step <= 2 ? 'flex' : 'none';
+      <div class="field" data-field="address1">
+        <label for="address1">Street Address <span class="req">*</span></label>
+        <input type="text" id="address1" autocomplete="off" required placeholder="Start typing an address...">
+        <div class="error-msg">Street address is required</div>
+      </div>
 
-  // Back button
-  const backBtn = document.getElementById('back-btn');
-  backBtn.style.display = (step > 0 && step <= 2) ? 'block' : 'none';
-  backBtn.onclick = () => goToStep(step - 1);
+      <div class="row">
+        <div class="field" data-field="city">
+          <label for="city">City <span class="req">*</span></label>
+          <input type="text" id="city" autocomplete="address-level2" required>
+          <div class="error-msg">City is required</div>
+        </div>
+        <div class="field" data-field="state" style="max-width:100px;">
+          <label for="state">State <span class="req">*</span></label>
+          <input type="text" id="state" autocomplete="address-level1" maxlength="2" required>
+          <div class="error-msg">Required</div>
+        </div>
+      </div>
 
-  // Render rooms on step 1
-  if (step === 1) {
-    renderRooms();
-    // Auto-expand the first room if none are expanded
-    const anyExpanded = document.querySelector('.room-card.expanded');
-    if (!anyExpanded) {
-      const first = document.querySelector('.room-card');
-      if (first) first.classList.add('expanded');
+      <div class="field" data-field="postal_code">
+        <label for="postal_code">Postal Code <span class="req">*</span></label>
+        <input type="text" id="postal_code" autocomplete="postal-code" inputmode="numeric" required>
+        <div class="error-msg">Postal code is required</div>
+      </div>
+
+      <button class="btn-primary" type="button" onclick="goToStep(1)">Next &rarr;</button>
+    </div>
+
+    <!-- Screen 2: Rooms & Surfaces -->
+    <div class="screen" id="screen-1">
+      <div class="section-label">Rooms &amp; Surfaces</div>
+      <p style="font-size:0.88rem;color:#666;margin-bottom:16px;">Add each room that has stone surfaces to be treated. For each room, select the surfaces and stone types. Need multiple rooms? Use the button at the bottom.</p>
+
+      <div id="rooms-container"></div>
+
+      <button class="btn-add" type="button" onclick="addRoom()">+ Additional stone for a different room?</button>
+
+      <button class="btn-primary" type="button" style="margin-top:20px;" onclick="goToStep(2)">Review &amp; Submit
+        &rarr;</button>
+    </div>
+
+    <!-- Screen 3: Review & Submit -->
+    <div class="screen" id="screen-2">
+      <div class="section-label">Review Submission</div>
+      <p style="font-size:0.88rem;color:#666;margin-bottom:16px;">Please verify all information before submitting.</p>
+
+      <div id="review-content"></div>
+
+      <button class="btn-primary" type="button" id="submit-btn" onclick="submitForm()">Submit Referral</button>
+    </div>
+
+    <!-- Screen 4: Confirmation -->
+    <div class="screen" id="screen-confirm">
+      <div class="confirmation">
+        <div class="check">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2>Referral Submitted!</h2>
+        <div class="customer-name" id="confirm-name"></div>
+        <p>Mike will be in touch to schedule a visit.</p>
+        <button class="btn-new" type="button" onclick="resetForm()">Submit Another Referral</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script>
+    // ── State ──
+    let state = {
+      contact: {
+        first_name: '', last_name: '', email: '', phone: '',
+        address1: '', city: '', state: '', postal_code: '',
+        affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '',
+        am_id: new URLSearchParams(window.location.search).get('am_id') || ''
+      },
+      rooms: []
+    };
+
+    let currentStep = 0;
+    let uidCounter = 0;
+    function uid() { return '_' + (++uidCounter); }
+
+    const ROOM_TYPES = ['Kitchen', 'Master Bath', 'Guest Bath', 'Master Bedroom', 'Hallway', 'Laundry Room', 'Outdoor Kitchen', 'Other'];
+    const SURFACE_TYPES = ['Countertop', 'Backsplash', 'Shower Wall', 'Shower Floor', 'Vanity Top', 'Bathroom Floor', 'Kitchen Floor', 'Hallway Floor', 'Fireplace Surround', 'Window Sill', 'Outdoor Countertop', 'Laundry Room Countertop', 'Shower Glass Door and Enclosure', 'Mirror', 'Windows', 'Other'];
+    const MATERIAL_TYPES = ['Granite', 'Quartz', 'Marble', 'Travertine', 'Limestone', 'Ceramic Tile', 'Porcelain Tile', 'Natural Stone (general)', 'Sintered Stone', 'Grout', 'Glass', 'Mirror', 'Concrete', 'Slate', 'Sandstone', 'Onyx', 'Other'];
+
+    // ── Navigation ──
+    function goToStep(step) {
+      if (step > currentStep) {
+        if (currentStep === 0 && !validateContact()) return;
+        if (currentStep === 1 && !validateRooms()) return;
+      }
+      if (currentStep === 0) syncContactFromDOM();
+      if (currentStep === 1) syncRoomsFromDOM();
+
+      currentStep = step;
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-' + step).classList.add('active');
+
+      // Progress
+      const dots = document.querySelectorAll('.progress-dot');
+      dots.forEach((d, i) => d.classList.toggle('active', i <= step));
+      document.getElementById('progress-label').textContent = 'Step ' + (step + 1) + ' of 3';
+      document.getElementById('progress').style.display = step <= 2 ? 'flex' : 'none';
+
+      // Back button
+      const backBtn = document.getElementById('back-btn');
+      backBtn.style.display = (step > 0 && step <= 2) ? 'block' : 'none';
+      backBtn.onclick = () => goToStep(step - 1);
+
+      // Render rooms on step 1
+      if (step === 1) {
+        renderRooms();
+        // Auto-expand the first room if none are expanded
+        const anyExpanded = document.querySelector('.room-card.expanded');
+        if (!anyExpanded) {
+          const first = document.querySelector('.room-card');
+          if (first) first.classList.add('expanded');
+        }
+      }
+      if (step === 2) renderReview();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }
-  if (step === 2) renderReview();
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function showConfirmation() {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-confirm').classList.add('active');
-  document.getElementById('progress').style.display = 'none';
-  document.getElementById('back-btn').style.display = 'none';
-  document.getElementById('confirm-name').textContent = state.contact.first_name + ' ' + state.contact.last_name;
-}
-
-// ── Contact Sync ──
-const contactFields = ['first_name','last_name','email','phone','address1','city','state','postal_code'];
-
-function syncContactFromDOM() {
-  contactFields.forEach(f => {
-    const el = document.getElementById(f);
-    if (el) state.contact[f] = el.value.trim();
-  });
-}
-
-function syncContactToDOM() {
-  contactFields.forEach(f => {
-    const el = document.getElementById(f);
-    if (el) el.value = state.contact[f];
-  });
-}
-
-// ── Validation ──
-function clearErrors(container) {
-  (container || document).querySelectorAll('.field.error').forEach(f => f.classList.remove('error'));
-}
-
-function setError(fieldEl) {
-  const wrap = fieldEl.closest('.field');
-  if (wrap) wrap.classList.add('error');
-}
-
-function validateContact() {
-  clearErrors(document.getElementById('screen-0'));
-  syncContactFromDOM();
-  let valid = true;
-  const c = state.contact;
-  const checks = [
-    ['first_name', c.first_name],
-    ['last_name', c.last_name],
-    ['email', c.email],
-    ['phone', c.phone],
-    ['address1', c.address1],
-    ['city', c.city],
-    ['state', c.state],
-    ['postal_code', c.postal_code],
-
-  ];
-  let firstError = null;
-  checks.forEach(([id, val]) => {
-    if (!val) {
-      setError(document.getElementById(id));
-      valid = false;
-      if (!firstError) firstError = document.getElementById(id);
+    function showConfirmation() {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-confirm').classList.add('active');
+      document.getElementById('progress').style.display = 'none';
+      document.getElementById('back-btn').style.display = 'none';
+      document.getElementById('confirm-name').textContent = state.contact.first_name + ' ' + state.contact.last_name;
     }
-  });
-  // Email format
-  if (c.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) {
-    setError(document.getElementById('email'));
-    valid = false;
-    if (!firstError) firstError = document.getElementById('email');
-  }
-  if (firstError) firstError.focus();
-  if (!valid) showToast('Please fix the highlighted fields', 'error');
-  return valid;
-}
 
-function validateRooms() {
-  syncRoomsFromDOM();
-  if (state.rooms.length === 0) {
-    showToast('Add at least one room', 'error');
-    return false;
-  }
-  let valid = true;
-  let firstError = null;
+    // ── Contact Sync ──
+    const contactFields = ['first_name', 'last_name', 'email', 'phone', 'address1', 'city', 'state', 'postal_code'];
 
-  // Clear all errors in rooms container
-  clearErrors(document.getElementById('rooms-container'));
-
-  state.rooms.forEach((room, ri) => {
-    const roomEl = document.querySelector('[data-room-uid="' + room._uid + '"]');
-    if (!roomEl) return;
-
-    if (!room.room_type) {
-      const sel = roomEl.querySelector('.room-type-select');
-      if (sel) { setError(sel); if (!firstError) firstError = sel; }
-      valid = false;
+    function syncContactFromDOM() {
+      contactFields.forEach(f => {
+        const el = document.getElementById(f);
+        if (el) state.contact[f] = el.value.trim();
+      });
     }
-    if (room.surfaces.length === 0) {
-      showToast('Each room needs at least one surface', 'error');
-      valid = false;
-      roomEl.classList.add('expanded');
-      return;
+
+    function syncContactToDOM() {
+      contactFields.forEach(f => {
+        const el = document.getElementById(f);
+        if (el) el.value = state.contact[f];
+      });
     }
-    room.surfaces.forEach((surf, si) => {
-      const surfEl = roomEl.querySelector('[data-surface-uid="' + surf._uid + '"]');
+
+    // ── Validation ──
+    function clearErrors(container) {
+      (container || document).querySelectorAll('.field.error').forEach(f => f.classList.remove('error'));
+    }
+
+    function setError(fieldEl) {
+      const wrap = fieldEl.closest('.field');
+      if (wrap) wrap.classList.add('error');
+    }
+
+    function validateContact() {
+      clearErrors(document.getElementById('screen-0'));
+      syncContactFromDOM();
+      let valid = true;
+      const c = state.contact;
+      const checks = [
+        ['first_name', c.first_name],
+        ['last_name', c.last_name],
+        ['email', c.email],
+        ['phone', c.phone],
+        ['address1', c.address1],
+        ['city', c.city],
+        ['state', c.state],
+        ['postal_code', c.postal_code],
+
+      ];
+      let firstError = null;
+      checks.forEach(([id, val]) => {
+        if (!val) {
+          setError(document.getElementById(id));
+          valid = false;
+          if (!firstError) firstError = document.getElementById(id);
+        }
+      });
+      // Email format
+      if (c.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) {
+        setError(document.getElementById('email'));
+        valid = false;
+        if (!firstError) firstError = document.getElementById('email');
+      }
+      if (firstError) firstError.focus();
+      if (!valid) showToast('Please fix the highlighted fields', 'error');
+      return valid;
+    }
+
+    function validateRooms() {
+      syncRoomsFromDOM();
+      if (state.rooms.length === 0) {
+        showToast('Add at least one room', 'error');
+        return false;
+      }
+      let valid = true;
+      let firstError = null;
+
+      // Clear all errors in rooms container
+      clearErrors(document.getElementById('rooms-container'));
+
+      state.rooms.forEach((room, ri) => {
+        const roomEl = document.querySelector('[data-room-uid="' + room._uid + '"]');
+        if (!roomEl) return;
+
+        if (!room.room_type) {
+          const sel = roomEl.querySelector('.room-type-select');
+          if (sel) { setError(sel); if (!firstError) firstError = sel; }
+          valid = false;
+        }
+        if (room.surfaces.length === 0) {
+          showToast('Each room needs at least one surface', 'error');
+          valid = false;
+          roomEl.classList.add('expanded');
+          return;
+        }
+        room.surfaces.forEach((surf, si) => {
+          const surfEl = roomEl.querySelector('[data-surface-uid="' + surf._uid + '"]');
+          if (!surfEl) return;
+          if (!surf.surface_type) {
+            const sel = surfEl.querySelector('.surface-type-select');
+            if (sel) { setError(sel); if (!firstError) firstError = sel; }
+            valid = false;
+          }
+          if (!surf.material_type) {
+            const sel = surfEl.querySelector('.material-type-select');
+            if (sel) { setError(sel); if (!firstError) firstError = sel; }
+            valid = false;
+          }
+          if (!surf.square_footage || parseFloat(surf.square_footage) <= 0) {
+            const inp = surfEl.querySelector('.sqft-input');
+            if (inp) { setError(inp); if (!firstError) firstError = inp; }
+            valid = false;
+          }
+        });
+      });
+
+      if (!valid) {
+        // Expand rooms/surfaces with errors
+        document.querySelectorAll('.field.error').forEach(f => {
+          const sc = f.closest('.surface-card');
+          if (sc) sc.classList.add('expanded');
+          const rc = f.closest('.room-card');
+          if (rc) rc.classList.add('expanded');
+        });
+        if (firstError) firstError.focus();
+        if (valid === false && !document.querySelector('.toast')) {
+          showToast('Please fix the highlighted fields', 'error');
+        }
+      }
+      return valid;
+    }
+
+    // ── Rooms Rendering ──
+    function syncRoomsFromDOM() {
+      state.rooms.forEach(room => {
+        const el = document.querySelector('[data-room-uid="' + room._uid + '"]');
+        if (!el) return;
+        room.room_type = el.querySelector('.room-type-select').value;
+
+        room.surfaces.forEach(surf => {
+          const sel = el.querySelector('[data-surface-uid="' + surf._uid + '"]');
+          if (!sel) return;
+          surf.surface_type = sel.querySelector('.surface-type-select').value;
+          surf.material_type = sel.querySelector('.material-type-select').value;
+          surf.square_footage = sel.querySelector('.sqft-input').value;
+          surf.estimated_install_date = sel.querySelector('.install-date-input').value;
+        });
+      });
+    }
+
+    function addRoom() {
+      syncRoomsFromDOM();
+      // Collapse existing rooms
+      document.querySelectorAll('.room-card').forEach(c => c.classList.remove('expanded'));
+      const room = {
+        _uid: uid(),
+        room_type: '',
+        surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' }]
+      };
+      state.rooms.push(room);
+      renderRooms();
+      // Expand the new room
+      const newEl = document.querySelector('[data-room-uid="' + room._uid + '"]');
+      if (newEl) {
+        newEl.classList.add('expanded');
+        newEl.querySelector('.room-type-select').focus();
+      }
+    }
+
+    function removeRoom(roomUid) {
+      state.rooms = state.rooms.filter(r => r._uid !== roomUid);
+      renderRooms();
+    }
+
+    function addSurface(roomUid) {
+      syncRoomsFromDOM();
+      const room = state.rooms.find(r => r._uid === roomUid);
+      if (!room) return;
+      // Collapse existing surfaces in this room
+      const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
+      if (roomEl) roomEl.querySelectorAll('.surface-card').forEach(c => c.classList.remove('expanded'));
+      const surf = { _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' };
+      room.surfaces.push(surf);
+      renderRooms();
+      // Re-expand room + new surface
+      const updatedRoomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
+      if (updatedRoomEl) {
+        updatedRoomEl.classList.add('expanded');
+        const newSurf = updatedRoomEl.querySelector('[data-surface-uid="' + surf._uid + '"]');
+        if (newSurf) {
+          newSurf.classList.add('expanded');
+          newSurf.querySelector('.surface-type-select').focus();
+        }
+      }
+    }
+
+    function removeSurface(roomUid, surfUid) {
+      const room = state.rooms.find(r => r._uid === roomUid);
+      if (!room) return;
+      syncRoomsFromDOM();
+      room.surfaces = room.surfaces.filter(s => s._uid !== surfUid);
+      renderRooms();
+      const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
+      if (roomEl) roomEl.classList.add('expanded');
+    }
+
+    function buildOptions(list, selected) {
+      return '<option value="">Select...</option>' + list.map(v =>
+        '<option' + (v === selected ? ' selected' : '') + '>' + v + '</option>'
+      ).join('');
+    }
+
+    function surfaceLabel(s) {
+      const parts = [];
+      if (s.surface_type) parts.push(s.surface_type);
+      if (s.material_type) parts.push(s.material_type);
+      if (s.square_footage) parts.push(s.square_footage + ' sqft');
+      return parts.length ? parts.join(' &middot; ') : 'New Surface';
+    }
+
+    function renderRooms() {
+      const container = document.getElementById('rooms-container');
+      // Remember which are expanded
+      const expandedRooms = new Set();
+      const expandedSurfaces = new Set();
+      container.querySelectorAll('.room-card.expanded').forEach(el => expandedRooms.add(el.dataset.roomUid));
+      container.querySelectorAll('.surface-card.expanded').forEach(el => expandedSurfaces.add(el.dataset.surfaceUid));
+
+      let html = '';
+      state.rooms.forEach((room, ri) => {
+        const isExpanded = expandedRooms.has(room._uid);
+        const roomTitle = room.room_type || 'Room ' + (ri + 1);
+        const surfCount = room.surfaces.length;
+
+        html += '<div class="room-card' + (isExpanded ? ' expanded' : '') + '" data-room-uid="' + room._uid + '">';
+        html += '<div class="room-header" onclick="toggleRoom(\'' + room._uid + '\')">';
+        html += '<div class="room-header-left">';
+        html += '<span class="room-step-number">' + (ri + 1) + '</span>';
+        html += '<span class="room-header-title">' + escHtml(roomTitle) + '</span>';
+        html += '<span class="room-header-badge">' + surfCount + ' surface' + (surfCount !== 1 ? 's' : '') + '</span>';
+        html += '</div>';
+        html += '<div class="room-header-actions">';
+        if (state.rooms.length > 1) {
+          html += '<button type="button" class="room-remove-btn" onclick="event.stopPropagation();removeRoom(\'' + room._uid + '\')">Remove</button>';
+        }
+        html += '<span class="room-chevron">&#9660;</span>';
+        html += '</div></div>';
+
+        html += '<div class="room-body">';
+
+        // Instruction hint
+        html += '<div class="room-instruction"><strong>Step 1:</strong> Select the room below. <strong>Step 2:</strong> Choose each stone surface in that room and its details.</div>';
+
+        html += '<div class="field"><label>Room <span class="req">*</span></label>';
+        html += '<select class="room-type-select" onchange="onRoomFieldChange(\'' + room._uid + '\')">' + buildOptions(ROOM_TYPES, room.room_type) + '</select>';
+        html += '<div class="error-msg">Room is required</div></div>';
+
+        html += '<div class="section-label" style="margin-top:12px;">Stone Surfaces in This Room</div>';
+
+        room.surfaces.forEach((surf, si) => {
+          // Auto-expand surfaces that have no data yet (new/empty)
+          const isNewSurface = !surf.surface_type && !surf.material_type && !surf.square_footage;
+          const surfExpanded = expandedSurfaces.has(surf._uid) || isNewSurface;
+          const needsInput = !surf.surface_type;
+          const labelClass = 'surface-header-label' + (needsInput ? ' needs-input' : '');
+          const labelText = needsInput ? '\u25B6 Select surface type, material & size' : surfaceLabel(surf);
+
+          html += '<div class="surface-card' + (surfExpanded ? ' expanded' : '') + '" data-surface-uid="' + surf._uid + '">';
+          html += '<div class="surface-header" onclick="toggleSurface(\'' + surf._uid + '\')">';
+          html += '<span class="' + labelClass + '">' + labelText + '</span>';
+          html += '<div class="surface-header-actions">';
+          if (room.surfaces.length > 1) {
+            html += '<button type="button" class="surface-remove-btn" onclick="event.stopPropagation();removeSurface(\'' + room._uid + '\',\'' + surf._uid + '\')">Remove</button>';
+          }
+          html += '<span class="surface-chevron">&#9660;</span>';
+          html += '</div></div>';
+
+          html += '<div class="surface-body">';
+          html += '<div class="field"><label>Surface Type <span class="req">*</span></label>';
+          html += '<select class="surface-type-select" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">' + buildOptions(SURFACE_TYPES, surf.surface_type) + '</select>';
+          html += '<div class="error-msg">Surface type is required</div></div>';
+          html += '<div class="field"><label>Material Type <span class="req">*</span></label>';
+          html += '<select class="material-type-select" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">' + buildOptions(MATERIAL_TYPES, surf.material_type) + '</select>';
+          html += '<div class="error-msg">Material type is required</div></div>';
+          html += '<div class="field"><label>Sq Ft <span class="req">*</span></label>';
+          html += '<input type="number" class="sqft-input" inputmode="decimal" min="0" value="' + escAttr(surf.square_footage) + '" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')" oninput="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">';
+          html += '<div class="error-msg">Square footage is required</div></div>';
+          html += '<div class="field"><label>Estimated Install Date</label>';
+          html += '<input type="date" class="install-date-input" value="' + escAttr(surf.estimated_install_date) + '">';
+          html += '</div>';
+          html += '</div></div>';
+        });
+
+        const addSurfLabel = room.room_type ? '+ Add another surface in the ' + escHtml(room.room_type) : '+ Add another surface';
+        html += '<button class="btn-add" type="button" onclick="addSurface(\'' + room._uid + '\')">' + addSurfLabel + '</button>';
+        html += '</div></div>';
+      });
+
+      container.innerHTML = html;
+    }
+
+    function toggleRoom(roomUid) {
+      syncRoomsFromDOM();
+      const el = document.querySelector('[data-room-uid="' + roomUid + '"]');
+      if (!el) return;
+      const isExpanding = !el.classList.contains('expanded');
+      // Accordion: collapse all other rooms when expanding one
+      if (isExpanding) {
+        document.querySelectorAll('.room-card.expanded').forEach(c => c.classList.remove('expanded'));
+      }
+      el.classList.toggle('expanded');
+    }
+
+    function toggleSurface(surfUid) {
+      syncRoomsFromDOM();
+      const el = document.querySelector('[data-surface-uid="' + surfUid + '"]');
+      if (el) el.classList.toggle('expanded');
+    }
+
+    function onRoomFieldChange(roomUid) {
+      const el = document.querySelector('[data-room-uid="' + roomUid + '"]');
+      if (!el) return;
+      const type = el.querySelector('.room-type-select').value;
+      const room = state.rooms.find(r => r._uid === roomUid);
+      if (room) { room.room_type = type; }
+      el.querySelector('.room-header-title').textContent = type || 'New Room';
+      // Update the "add surface" button label
+      const addBtn = el.querySelector('.btn-add');
+      if (addBtn) addBtn.textContent = type ? 'Additional stone for the ' + type + '?' : '+ Add another surface';
+    }
+
+    function onSurfaceFieldChange(roomUid, surfUid) {
+      const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
+      if (!roomEl) return;
+      const surfEl = roomEl.querySelector('[data-surface-uid="' + surfUid + '"]');
       if (!surfEl) return;
-      if (!surf.surface_type) {
-        const sel = surfEl.querySelector('.surface-type-select');
-        if (sel) { setError(sel); if (!firstError) firstError = sel; }
-        valid = false;
+      const st = surfEl.querySelector('.surface-type-select').value;
+      const mt = surfEl.querySelector('.material-type-select').value;
+      const sq = surfEl.querySelector('.sqft-input').value;
+      // Update state
+      const room = state.rooms.find(r => r._uid === roomUid);
+      if (room) {
+        const surf = room.surfaces.find(s => s._uid === surfUid);
+        if (surf) { surf.surface_type = st; surf.material_type = mt; surf.square_footage = sq; }
       }
-      if (!surf.material_type) {
-        const sel = surfEl.querySelector('.material-type-select');
-        if (sel) { setError(sel); if (!firstError) firstError = sel; }
-        valid = false;
+      // Update header label
+      const label = surfEl.querySelector('.surface-header-label');
+      const parts = [];
+      if (st) parts.push(st);
+      if (mt) parts.push(mt);
+      if (sq) parts.push(sq + ' sqft');
+      if (parts.length) {
+        label.innerHTML = parts.join(' &middot; ');
+        label.classList.remove('needs-input');
+      } else {
+        label.innerHTML = '\u25B6 Select surface type, material & size';
+        label.classList.add('needs-input');
       }
-      if (!surf.square_footage || parseFloat(surf.square_footage) <= 0) {
-        const inp = surfEl.querySelector('.sqft-input');
-        if (inp) { setError(inp); if (!firstError) firstError = inp; }
-        valid = false;
-      }
-    });
-  });
-
-  if (!valid) {
-    // Expand rooms/surfaces with errors
-    document.querySelectorAll('.field.error').forEach(f => {
-      const sc = f.closest('.surface-card');
-      if (sc) sc.classList.add('expanded');
-      const rc = f.closest('.room-card');
-      if (rc) rc.classList.add('expanded');
-    });
-    if (firstError) firstError.focus();
-    if (valid === false && !document.querySelector('.toast')) {
-      showToast('Please fix the highlighted fields', 'error');
     }
-  }
-  return valid;
-}
 
-// ── Rooms Rendering ──
-function syncRoomsFromDOM() {
-  state.rooms.forEach(room => {
-    const el = document.querySelector('[data-room-uid="' + room._uid + '"]');
-    if (!el) return;
-    room.room_type = el.querySelector('.room-type-select').value;
+    // ── Review ──
+    function renderReview() {
+      syncContactFromDOM();
+      syncRoomsFromDOM();
+      const c = state.contact;
+      let html = '';
 
-    room.surfaces.forEach(surf => {
-      const sel = el.querySelector('[data-surface-uid="' + surf._uid + '"]');
-      if (!sel) return;
-      surf.surface_type = sel.querySelector('.surface-type-select').value;
-      surf.material_type = sel.querySelector('.material-type-select').value;
-      surf.square_footage = sel.querySelector('.sqft-input').value;
-      surf.estimated_install_date = sel.querySelector('.install-date-input').value;
-    });
-  });
-}
+      html += '<div class="review-section">';
+      html += '<h3>Customer</h3>';
+      html += reviewRow('Name', c.first_name + ' ' + c.last_name);
+      html += reviewRow('Email', c.email);
+      html += reviewRow('Phone', c.phone);
+      html += reviewRow('Address', c.address1 + ', ' + c.city + ', ' + c.state + ' ' + c.postal_code);
 
-function addRoom() {
-  syncRoomsFromDOM();
-  // Collapse existing rooms
-  document.querySelectorAll('.room-card').forEach(c => c.classList.remove('expanded'));
-  const room = {
-    _uid: uid(),
-    room_type: '',
-    surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' }]
-  };
-  state.rooms.push(room);
-  renderRooms();
-  // Expand the new room
-  const newEl = document.querySelector('[data-room-uid="' + room._uid + '"]');
-  if (newEl) {
-    newEl.classList.add('expanded');
-    newEl.querySelector('.room-type-select').focus();
-  }
-}
-
-function removeRoom(roomUid) {
-  state.rooms = state.rooms.filter(r => r._uid !== roomUid);
-  renderRooms();
-}
-
-function addSurface(roomUid) {
-  syncRoomsFromDOM();
-  const room = state.rooms.find(r => r._uid === roomUid);
-  if (!room) return;
-  // Collapse existing surfaces in this room
-  const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
-  if (roomEl) roomEl.querySelectorAll('.surface-card').forEach(c => c.classList.remove('expanded'));
-  const surf = { _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' };
-  room.surfaces.push(surf);
-  renderRooms();
-  // Re-expand room + new surface
-  const updatedRoomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
-  if (updatedRoomEl) {
-    updatedRoomEl.classList.add('expanded');
-    const newSurf = updatedRoomEl.querySelector('[data-surface-uid="' + surf._uid + '"]');
-    if (newSurf) {
-      newSurf.classList.add('expanded');
-      newSurf.querySelector('.surface-type-select').focus();
-    }
-  }
-}
-
-function removeSurface(roomUid, surfUid) {
-  const room = state.rooms.find(r => r._uid === roomUid);
-  if (!room) return;
-  syncRoomsFromDOM();
-  room.surfaces = room.surfaces.filter(s => s._uid !== surfUid);
-  renderRooms();
-  const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
-  if (roomEl) roomEl.classList.add('expanded');
-}
-
-function buildOptions(list, selected) {
-  return '<option value="">Select...</option>' + list.map(v =>
-    '<option' + (v === selected ? ' selected' : '') + '>' + v + '</option>'
-  ).join('');
-}
-
-function surfaceLabel(s) {
-  const parts = [];
-  if (s.surface_type) parts.push(s.surface_type);
-  if (s.material_type) parts.push(s.material_type);
-  if (s.square_footage) parts.push(s.square_footage + ' sqft');
-  return parts.length ? parts.join(' &middot; ') : 'New Surface';
-}
-
-function renderRooms() {
-  const container = document.getElementById('rooms-container');
-  // Remember which are expanded
-  const expandedRooms = new Set();
-  const expandedSurfaces = new Set();
-  container.querySelectorAll('.room-card.expanded').forEach(el => expandedRooms.add(el.dataset.roomUid));
-  container.querySelectorAll('.surface-card.expanded').forEach(el => expandedSurfaces.add(el.dataset.surfaceUid));
-
-  let html = '';
-  state.rooms.forEach((room, ri) => {
-    const isExpanded = expandedRooms.has(room._uid);
-    const roomTitle = room.room_type || 'Room ' + (ri + 1);
-    const surfCount = room.surfaces.length;
-
-    html += '<div class="room-card' + (isExpanded ? ' expanded' : '') + '" data-room-uid="' + room._uid + '">';
-    html += '<div class="room-header" onclick="toggleRoom(\'' + room._uid + '\')">';
-    html += '<div class="room-header-left">';
-    html += '<span class="room-header-title">' + escHtml(roomTitle) + '</span>';
-    html += '<span class="room-header-badge">' + surfCount + ' surface' + (surfCount !== 1 ? 's' : '') + '</span>';
-    html += '</div>';
-    html += '<div class="room-header-actions">';
-    if (state.rooms.length > 1) {
-      html += '<button type="button" class="room-remove-btn" onclick="event.stopPropagation();removeRoom(\'' + room._uid + '\')">Remove</button>';
-    }
-    html += '<span class="room-chevron">&#9660;</span>';
-    html += '</div></div>';
-
-    html += '<div class="room-body">';
-    html += '<div class="field"><label>Room <span class="req">*</span></label>';
-    html += '<select class="room-type-select" onchange="onRoomFieldChange(\'' + room._uid + '\')">' + buildOptions(ROOM_TYPES, room.room_type) + '</select>';
-    html += '<div class="error-msg">Room is required</div></div>';
-
-    html += '<div class="section-label" style="margin-top:12px;">Surfaces</div>';
-
-    room.surfaces.forEach((surf, si) => {
-      const surfExpanded = expandedSurfaces.has(surf._uid);
-      html += '<div class="surface-card' + (surfExpanded ? ' expanded' : '') + '" data-surface-uid="' + surf._uid + '">';
-      html += '<div class="surface-header" onclick="toggleSurface(\'' + surf._uid + '\')">';
-      html += '<span class="surface-header-label">' + surfaceLabel(surf) + '</span>';
-      html += '<div class="surface-header-actions">';
-      if (room.surfaces.length > 1) {
-        html += '<button type="button" class="surface-remove-btn" onclick="event.stopPropagation();removeSurface(\'' + room._uid + '\',\'' + surf._uid + '\')">Remove</button>';
-      }
-      html += '<span class="surface-chevron">&#9660;</span>';
-      html += '</div></div>';
-
-      html += '<div class="surface-body">';
-      html += '<div class="field"><label>Surface Type <span class="req">*</span></label>';
-      html += '<select class="surface-type-select" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">' + buildOptions(SURFACE_TYPES, surf.surface_type) + '</select>';
-      html += '<div class="error-msg">Surface type is required</div></div>';
-      html += '<div class="field"><label>Material Type <span class="req">*</span></label>';
-      html += '<select class="material-type-select" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">' + buildOptions(MATERIAL_TYPES, surf.material_type) + '</select>';
-      html += '<div class="error-msg">Material type is required</div></div>';
-      html += '<div class="field"><label>Sq Ft <span class="req">*</span></label>';
-      html += '<input type="number" class="sqft-input" inputmode="decimal" min="0" value="' + escAttr(surf.square_footage) + '" onchange="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')" oninput="onSurfaceFieldChange(\'' + room._uid + '\',\'' + surf._uid + '\')">';
-      html += '<div class="error-msg">Square footage is required</div></div>';
-      html += '<div class="field"><label>Estimated Install Date</label>';
-      html += '<input type="date" class="install-date-input" value="' + escAttr(surf.estimated_install_date) + '">';
       html += '</div>';
-      html += '</div></div>';
-    });
 
-    const addSurfLabel = room.room_type ? 'Additional stone for the ' + escHtml(room.room_type) + '?' : '+ Add another surface';
-    html += '<button class="btn-add" type="button" onclick="addSurface(\'' + room._uid + '\')">' + addSurfLabel + '</button>';
-    html += '</div></div>';
-  });
+      html += '<div class="review-section">';
+      html += '<h3>Rooms &amp; Surfaces</h3>';
+      state.rooms.forEach((room, ri) => {
+        html += '<div class="review-room">';
+        html += '<h4>' + escHtml(room.room_type || 'Room ' + (ri + 1)) + '</h4>';
+        room.surfaces.forEach(s => {
+          let label = escHtml(s.surface_type) + ' &middot; ' + escHtml(s.material_type) + ' &middot; ' + s.square_footage + ' sqft';
+          if (s.estimated_install_date) label += ' &middot; Install: ' + s.estimated_install_date;
+          html += '<div class="review-surface">' + label + '</div>';
+        });
+        html += '</div>';
+      });
+      html += '</div>';
 
-  container.innerHTML = html;
-}
+      document.getElementById('review-content').innerHTML = html;
+    }
 
-function toggleRoom(roomUid) {
-  syncRoomsFromDOM();
-  const el = document.querySelector('[data-room-uid="' + roomUid + '"]');
-  if (el) el.classList.toggle('expanded');
-}
+    function reviewRow(label, value) {
+      return '<div class="review-row"><span class="label">' + label + '</span><span class="value">' + escHtml(value) + '</span></div>';
+    }
 
-function toggleSurface(surfUid) {
-  syncRoomsFromDOM();
-  const el = document.querySelector('[data-surface-uid="' + surfUid + '"]');
-  if (el) el.classList.toggle('expanded');
-}
+    // ── Submit ──
+    async function submitForm() {
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
 
-function onRoomFieldChange(roomUid) {
-  const el = document.querySelector('[data-room-uid="' + roomUid + '"]');
-  if (!el) return;
-  const type = el.querySelector('.room-type-select').value;
-  const room = state.rooms.find(r => r._uid === roomUid);
-  if (room) { room.room_type = type; }
-  el.querySelector('.room-header-title').textContent = type || 'New Room';
-  // Update the "add surface" button label
-  const addBtn = el.querySelector('.btn-add');
-  if (addBtn) addBtn.textContent = type ? 'Additional stone for the ' + type + '?' : '+ Add another surface';
-}
+      syncContactFromDOM();
+      syncRoomsFromDOM();
 
-function onSurfaceFieldChange(roomUid, surfUid) {
-  const roomEl = document.querySelector('[data-room-uid="' + roomUid + '"]');
-  if (!roomEl) return;
-  const surfEl = roomEl.querySelector('[data-surface-uid="' + surfUid + '"]');
-  if (!surfEl) return;
-  const st = surfEl.querySelector('.surface-type-select').value;
-  const mt = surfEl.querySelector('.material-type-select').value;
-  const sq = surfEl.querySelector('.sqft-input').value;
-  // Update state
-  const room = state.rooms.find(r => r._uid === roomUid);
-  if (room) {
-    const surf = room.surfaces.find(s => s._uid === surfUid);
-    if (surf) { surf.surface_type = st; surf.material_type = mt; surf.square_footage = sq; }
-  }
-  // Update header label
-  const label = surfEl.querySelector('.surface-header-label');
-  const parts = [];
-  if (st) parts.push(st);
-  if (mt) parts.push(mt);
-  if (sq) parts.push(sq + ' sqft');
-  label.innerHTML = parts.length ? parts.join(' &middot; ') : 'New Surface';
-}
+      // Build payload — room_name auto-set from room_type for GHL
+      const rooms = state.rooms.map(r => ({
+        room_name: r.room_type,
+        room_type: r.room_type,
+        room_notes: ''
+      }));
 
-// ── Review ──
-function renderReview() {
-  syncContactFromDOM();
-  syncRoomsFromDOM();
-  const c = state.contact;
-  let html = '';
+      const surfaces = [];
+      state.rooms.forEach((r, ri) => {
+        r.surfaces.forEach(s => {
+          surfaces.push({
+            room_index: ri,
+            surface_type: s.surface_type,
+            material_type: s.material_type,
+            square_footage: parseFloat(s.square_footage) || 0,
+            surface_notes: '',
+            estimated_install_date: s.estimated_install_date || ''
+          });
+        });
+      });
 
-  html += '<div class="review-section">';
-  html += '<h3>Customer</h3>';
-  html += reviewRow('Name', c.first_name + ' ' + c.last_name);
-  html += reviewRow('Email', c.email);
-  html += reviewRow('Phone', c.phone);
-  html += reviewRow('Address', c.address1 + ', ' + c.city + ', ' + c.state + ' ' + c.postal_code);
+      const payload = {
+        submitted_at: new Date().toISOString(),
+        contact: { ...state.contact },
+        rooms: rooms,
+        surfaces: surfaces
+      };
 
-  html += '</div>';
+      try {
+        const resp = await fetch('https://snowflakeventures.app.n8n.cloud/webhook/hydroshield-affiliate-new-customer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer hydroshield-affiliate-intake-2026'
+          },
+          body: JSON.stringify(payload)
+        });
 
-  html += '<div class="review-section">';
-  html += '<h3>Rooms &amp; Surfaces</h3>';
-  state.rooms.forEach((room, ri) => {
-    html += '<div class="review-room">';
-    html += '<h4>' + escHtml(room.room_type || 'Room ' + (ri+1)) + '</h4>';
-    room.surfaces.forEach(s => {
-      let label = escHtml(s.surface_type) + ' &middot; ' + escHtml(s.material_type) + ' &middot; ' + s.square_footage + ' sqft';
-      if (s.estimated_install_date) label += ' &middot; Install: ' + s.estimated_install_date;
-      html += '<div class="review-surface">' + label + '</div>';
-    });
-    html += '</div>';
-  });
-  html += '</div>';
+        if (!resp.ok) throw new Error('Server returned ' + resp.status);
 
-  document.getElementById('review-content').innerHTML = html;
-}
+        showToast('Referral submitted successfully!', 'success');
+        showConfirmation();
+        if (window.affiliateManager) {
+          window.affiliateManager.trackLead(
+            { firstName: state.contact.first_name, lastName: state.contact.last_name, email: state.contact.email },
+            function () { console.log('Affiliate lead tracked'); }
+          );
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Submit Referral';
+        showToast('Submission failed: ' + err.message, 'error');
+      }
+    }
 
-function reviewRow(label, value) {
-  return '<div class="review-row"><span class="label">' + label + '</span><span class="value">' + escHtml(value) + '</span></div>';
-}
+    // ── Reset ──
+    function resetForm() {
+      state = {
+        contact: { first_name: '', last_name: '', email: '', phone: '', address1: '', city: '', state: '', postal_code: '', affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
+        rooms: []
+      };
+      syncContactToDOM();
+      contactFields.forEach(f => {
+        const wrap = document.getElementById(f)?.closest('.field');
+        if (wrap) wrap.classList.remove('error');
+      });
+      currentStep = 0;
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-0').classList.add('active');
+      document.querySelectorAll('.progress-dot').forEach((d, i) => d.classList.toggle('active', i === 0));
+      document.getElementById('progress-label').textContent = 'Step 1 of 3';
+      document.getElementById('progress').style.display = 'flex';
+      document.getElementById('back-btn').style.display = 'none';
+      window.scrollTo({ top: 0 });
+    }
 
-// ── Submit ──
-async function submitForm() {
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
+    // ── Toast ──
+    function showToast(msg, type) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast ' + type;
+      toast.textContent = msg;
+      container.appendChild(toast);
+      setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3200);
+    }
 
-  syncContactFromDOM();
-  syncRoomsFromDOM();
+    // ── Utils ──
+    function escHtml(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+    function escAttr(str) {
+      return (str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
 
-  // Build payload — room_name auto-set from room_type for GHL
-  const rooms = state.rooms.map(r => ({
-    room_name: r.room_type,
-    room_type: r.room_type,
-    room_notes: ''
-  }));
-
-  const surfaces = [];
-  state.rooms.forEach((r, ri) => {
-    r.surfaces.forEach(s => {
-      surfaces.push({
-        room_index: ri,
-        surface_type: s.surface_type,
-        material_type: s.material_type,
-        square_footage: parseFloat(s.square_footage) || 0,
-        surface_notes: '',
-        estimated_install_date: s.estimated_install_date || ''
+    // ── Init: start with one room + one surface ──
+    document.addEventListener('DOMContentLoaded', () => {
+      state.rooms.push({
+        _uid: uid(),
+        room_type: '',
+        surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' }]
       });
     });
-  });
 
-  const payload = {
-    submitted_at: new Date().toISOString(),
-    contact: { ...state.contact },
-    rooms: rooms,
-    surfaces: surfaces
-  };
+    // ── Google Places Autocomplete ──
+    function initAutocomplete() {
+      const input = document.getElementById('address1');
+      const autocomplete = new google.maps.places.Autocomplete(input, {
+        componentRestrictions: { country: 'us' },
+        fields: ['address_components', 'formatted_address'],
+        types: ['address']
+      });
 
-  try {
-    const resp = await fetch('https://snowflakeventures.app.n8n.cloud/webhook/hydroshield-affiliate-new-customer', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer hydroshield-affiliate-intake-2026'
-      },
-      body: JSON.stringify(payload)
-    });
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.address_components) return;
 
-    if (!resp.ok) throw new Error('Server returned ' + resp.status);
+        let streetNumber = '';
+        let route = '';
+        let city = '';
+        let stateShort = '';
+        let zip = '';
 
-    showToast('Referral submitted successfully!', 'success');
-    showConfirmation();
-    if (window.affiliateManager) {
-      window.affiliateManager.trackLead(
-        { firstName: state.contact.first_name, lastName: state.contact.last_name, email: state.contact.email },
-        function() { console.log('Affiliate lead tracked'); }
-      );
+        for (const comp of place.address_components) {
+          const type = comp.types[0];
+          if (type === 'street_number') streetNumber = comp.long_name;
+          if (type === 'route') route = comp.long_name;
+          if (type === 'locality') city = comp.long_name;
+          if (type === 'administrative_area_level_1') stateShort = comp.short_name;
+          if (type === 'postal_code') zip = comp.long_name;
+        }
+
+        document.getElementById('address1').value = (streetNumber + ' ' + route).trim();
+        document.getElementById('city').value = city;
+        document.getElementById('state').value = stateShort;
+        document.getElementById('postal_code').value = zip;
+      });
     }
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'Submit Referral';
-    showToast('Submission failed: ' + err.message, 'error');
-  }
-}
-
-// ── Reset ──
-function resetForm() {
-  state = {
-    contact: { first_name:'', last_name:'', email:'', phone:'', address1:'', city:'', state:'', postal_code:'', affiliate_shop: new URLSearchParams(window.location.search).get('affiliate_shop') || '', am_id: new URLSearchParams(window.location.search).get('am_id') || '' },
-    rooms: []
-  };
-  syncContactToDOM();
-  contactFields.forEach(f => {
-    const wrap = document.getElementById(f)?.closest('.field');
-    if (wrap) wrap.classList.remove('error');
-  });
-  currentStep = 0;
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-0').classList.add('active');
-  document.querySelectorAll('.progress-dot').forEach((d,i) => d.classList.toggle('active', i === 0));
-  document.getElementById('progress-label').textContent = 'Step 1 of 3';
-  document.getElementById('progress').style.display = 'flex';
-  document.getElementById('back-btn').style.display = 'none';
-  window.scrollTo({ top: 0 });
-}
-
-// ── Toast ──
-function showToast(msg, type) {
-  const container = document.getElementById('toast-container');
-  const toast = document.createElement('div');
-  toast.className = 'toast ' + type;
-  toast.textContent = msg;
-  container.appendChild(toast);
-  setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3200);
-}
-
-// ── Utils ──
-function escHtml(str) {
-  const d = document.createElement('div');
-  d.textContent = str || '';
-  return d.innerHTML;
-}
-function escAttr(str) {
-  return (str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-// ── Init: start with one room + one surface ──
-document.addEventListener('DOMContentLoaded', () => {
-  state.rooms.push({
-    _uid: uid(),
-    room_type: '',
-    surfaces: [{ _uid: uid(), surface_type: '', material_type: '', square_footage: '', estimated_install_date: '' }]
-  });
-});
-</script>
+  </script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDboXUXf8IghhNWseAUSe5PG1kDjMCF4GE&libraries=places&callback=initAutocomplete"
+    async defer></script>
 </body>
+
 </html>
